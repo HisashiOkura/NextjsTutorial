@@ -1,5 +1,7 @@
 'use server';
 
+const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
+
 export async function createInvoice(formData: FormData) {
   const rawFormData = {
     customerId: formData.get('customerId'),
